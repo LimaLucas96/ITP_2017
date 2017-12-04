@@ -25,7 +25,7 @@ O que foi feito:
 	
 O que nao foi feito
 ------------------
-	Algumas imagens não foi possivel encontrar a pupila e com isso nao se teve o diagnostico preciso da catarata;
+	A imagem de catarata1 não foi pussivel encontrar a pupila e com isso não se teve o diagnostico preciso da catarata;
 
 Como compilar:
 ------------
