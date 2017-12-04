@@ -48,7 +48,7 @@ image *ler_ascii(char *arquivo){
 
 	image =new_imagem(coluna,linha);
 
-	//For usado para pegar cada pixel da imagem, repare q uso a struct pixel q declarei no inicio da funcao
+	//For usado para pegar cada pixel da imagem
 	for(i=0;i<linha;i++){
 		for(j=0;j<coluna;j++){
 			fscanf(foto, "%d",&image->px[i][j].red);
@@ -58,7 +58,7 @@ image *ler_ascii(char *arquivo){
 	}
 
 	
-	fclose(foto);// fecho o arquivo passado pelo usuario
+	fclose(foto);// fecha o arquivo passado pelo usuario
 
 	return image;
 }
@@ -79,7 +79,7 @@ void salva_ascii(image *img){
 	fprintf(ft, "%d\n",img->nlinhas);//passa o numero de linhas para o arquivo 
 	fprintf(ft, "%d\n",255);//passa o numero maximo de cada pixel 
 	
-	// passa a matrix com os pixel do arquivo
+	// passa a matriz com os pixel do arquivo
 	for(i=0;i<img->nlinhas;i++){
 		for(j=0;j<img->ncolunas;j++){
 			fprintf(ft, "%d ",img->px[i][j].red);
