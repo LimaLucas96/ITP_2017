@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
 	image *thod;
 	char Arquivo[20],formato[10],dest[20];
 	int lim,rmin,rmax,i;
-	//int i;
 	
 	for(i=0;i<argc;i++){
 		if(strcmp(argv[i],"-i")==0){
@@ -57,29 +56,23 @@ int main(int argc, char *argv[])
 
 	cinquenta_tons_de_cinza(img);
 
-	//salva_ascii(img);
-	//printf("passa\n");
-
-	/*gaus=img;
-	for(i=0;i<20;i++){
-		gaus=img_filtro(gaus);
-	}*/
+	//salva_ascii(img); //imagem cinza
+	
 	gaus=img_filtro(img);
 	
 	sob=sobel(gaus);
 
-	//salva_ascii(sob);
-	//printf("Digite o limiar, o rmin e rmax\n");
-//	scanf("%d %d %d",&lim,&rmin,&rmax);
-//	printf("aff\n");
-	thod=Binarizacao(sob,lim);
-//	printf("cu\n");
+	//salva_ascii(sob); // imagem sobel
 
-	//salva_ascii(thod);
+
+	thod=Binarizacao(sob,lim);
+
+
+	//salva_ascii(thod); // imagem binarizada
 
 	img=ler_ascii(Arquivo);
 
-	MatrixA *m=hough2(thod,rmin,rmax);//hough(thod,rmin,rmin_i,rmax);
+	MatrixA *m=hough2(thod,rmin,rmax);
 
 	image *seg=pupila(img,m);
 
@@ -88,7 +81,7 @@ int main(int argc, char *argv[])
 	Diagnostico(seg,m,dest);
 	printf("processamento concluido.\n");
 	//salva_ascii(seg);
-//	salva_ascii(img);
+	//salva_ascii(img); //imagem com circulo destacando a pupila
 	free(img);
 	free(gaus);
 	free(sob);
